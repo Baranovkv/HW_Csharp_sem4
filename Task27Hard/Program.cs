@@ -12,9 +12,9 @@
 int DigitCount(double number) // функция для решения только второй части задачи (HARD), возвращает количество цифр
 {
     int count = 0;
-    for (double i = number; (i % 1) > 0; i = i * 10) // посчитали цифры справа от запятой
+    for (double i = Math.Abs(number); (i % 1) > 0; i = i * 10) // посчитали цифры справа от запятой
         count++;
-    for (double i = number; i > 1; i = i / 10) // посчитали цифры слева от запятой
+    for (double i = Math.Abs(number); i > 1; i = i / 10) // посчитали цифры слева от запятой
         count++;
     return count;
 }
@@ -46,3 +46,6 @@ double num = Convert.ToDouble(Console.ReadLine());
 int[] result = new int[2]; // массив для возврата счетчика и суммы из функции
 DigitCountSum(num, result);
 Console.WriteLine($"{result[0]} digits in the number. Digits summ is {result[1]}");
+
+Console.WriteLine();
+Console.WriteLine($"The number has {DigitCount(num)} digits"); // решение только второй части задачи
